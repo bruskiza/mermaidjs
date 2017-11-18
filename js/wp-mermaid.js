@@ -9,6 +9,7 @@ setInterval(() => {
       const hr = document.createElement('hr')
       node.parentNode.insertBefore(hr, node)
       node.parentNode.insertBefore(newNode, hr)
+
     })
     window.mermaid.init({
       logLevel: 1
