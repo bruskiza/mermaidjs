@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+
+<html lang="">
+
+<head>
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+  <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="gitbook/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/mermaid.forest.min.css" />
+  <meta charset="UTF-8">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="description" content="">
+  <meta name="generator" content="GitBook 3.2.2">
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Demos · GitBook</title>
+</head>
+
+<body>
+
+  <div class="book">
+    <div class="book-summary">
+
+
+      <div id="book-search-input" role="search">
+        <input type="text" placeholder="Type to search" />
+      </div>
+
+
+
+
+    </div>
+
+    <div class="book-body">
+
+      <div class="body-inner">
+
+
+
+        <div class="book-header" role="navigation">
+
+
+          <!-- Title -->
+          <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Demos</a>
+    </h1>
+        </div>
+
+
+
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <div id="book-search-results">
+              <div class="search-noresults">
+
+                <section class="normal markdown-section">
+
+                  <h1 id="demos">Demos</h1>
+                  <h2 id="basic-sequence-diagram">Basic sequence diagram</h2>
+                  <pre><code class="lang-mermaid">sequenceDiagram
+    Alice -&gt;&gt; Bob: Hello Bob, how are you?
+    Bob--&gt;&gt;John: How about you John?
+    Bob--x Alice: I am good thanks!
+    Bob-x John: I am good thanks!
+    Note right of John: Bob thinks a long&lt;br/&gt;long time, so long&lt;br/&gt;that the text does&lt;br/&gt;not fit on a row.
+
+    Bob--&gt;Alice: Checking with John...
+    Alice-&gt;John: Yes... John, how are you?
+</code></pre>
+                  <h2 id="basic-flowchart">Basic flowchart</h2>
+                  <pre><code class="lang-mermaid">graph LR
+    A[Square Rect] -- Link text --&gt; B((Circle))
+    A --&gt; C(Round Rect)
+    B --&gt; D{Rhombus}
+    C --&gt; D
+</code></pre>
+                  <h2 id="larger-flowchart-with-some-styling">Larger flowchart with some styling</h2>
+                  <pre><code class="lang-mermaid">graph TB
+    sq[Square shape] --&gt; ci((Circle shape))
+
+    subgraph A subgraph
+        od&gt;Odd shape]-- Two line&lt;br/&gt;edge comment --&gt; ro
+        di{Diamond with &lt;br/&gt; line break} -.-&gt; ro(Rounded&lt;br&gt;square&lt;br&gt;shape)
+        di==&gt;ro2(Rounded square shape)
+    end
+
+    %% Notice that no text in shape are added here instead that is appended further down
+    e --&gt; od3&gt;Really long text with linebreak&lt;br&gt;in an Odd shape]
+
+    %% Comments after double percent signs
+    e((Inner / circle&lt;br&gt;and some odd &lt;br&gt;special characters)) --&gt; f(,.?!+-*&#x632;)
+
+    cyr[Cyrillic]--&gt;cyr2((Circle shape &#x41D;&#x430;&#x447;&#x430;&#x43B;&#x43E;));
+
+     classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+     classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+     class sq,e green
+     class di orange
+</code></pre>
+                  <h2 id="loops-alt-and-opt">Loops, alt and opt</h2>
+                  <pre><code class="lang-mermaid">sequenceDiagram
+    loop Daily query
+        Alice-&gt;&gt;Bob: Hello Bob, how are you?
+        alt is sick
+            Bob-&gt;&gt;Alice: Not so good :(
+        else is well
+            Bob-&gt;&gt;Alice: Feeling fresh like a daisy
+        end
+
+        opt Extra response
+            Bob-&gt;&gt;Alice: Thanks for asking
+        end
+    end
+</code></pre>
+                  <h2 id="message-to-self-in-loop">Message to self in loop</h2>
+                  <pre><code class="lang-mermaid">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts&lt;br/&gt;prevail...
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!
+</code></pre>
+
+
+                </section>
+
+              </div>
+              <div class="search-results">
+                <div class="has-results">
+
+                  <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+                  <ul class="search-results-list"></ul>
+
+                </div>
+                <div class="no-results">
+
+                  <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <a href="mermaidCLI.html" class="navigation navigation-prev " aria-label="Previous page: mermaid CLI">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+
+
+      <a href="mermaidAPI.html" class="navigation navigation-next " aria-label="Next page: mermaidAPI">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+
+    <script type="text/javascript" src="../js/wp-mermaid.js"></script>
+
+
+</body>
+
+</html>
