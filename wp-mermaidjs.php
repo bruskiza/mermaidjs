@@ -9,7 +9,7 @@ Description: Combining the convenience of Wordpress with the convenience of Merm
 
 /* Add the javascript and the css */
 function wpmjs_load() {
-  wp_enqueue_style('mermaid-forest', 'https://mermaidjs.github.io/styles/mermaid.forest.min.css');
+  wp_enqueue_style('mermaid-forest', plugin_dir_url( __FILE__) . "css/mermaid.forest.min.css");
   wp_enqueue_script('mermaid', 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js', '', '', true);
   wp_enqueue_script('mermaidwp', plugin_dir_url( __FILE__ ) . "js/wp-mermaid.js", '', '', true);
 
@@ -29,10 +29,19 @@ function wpmjs_diagram( $atts, $content ) {
   $mcontent = urldecode($mcontent);
   $content = "";
   error_log("Got content:\n\n\n" . $mcontent . "\n\n\n");
-  return "<pre><code class=\"lang-mermaid\">" . $mcontent . "</code></pre>";
+  return "<div class=\"mermaid_container\"><pre><code class=\"lang-mermaid\">" . $mcontent . "</code></pre></div>";
 
 }
 
 /* Add the actions and tell wordpress */
+function wpmjs_admin_actions() {
+  add_options_page("MermaidJS for Wordpress Display", "MermaidJS", 1, "MermaidJS Display", "wpmjs_admin_page");
+}
+
+function wpmjs_admin_page() {
+  include('wp-mermaidjs-admin.php');
+}
+
+add_action('admin_menu', 'wpmjs_admin_actions');
 add_action('wp_enqueue_scripts', 'wpmjs_load');
 add_shortcode('mermaid', 'wpmjs_diagram');
